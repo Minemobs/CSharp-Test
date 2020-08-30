@@ -6,8 +6,8 @@ namespace FirstApp
         static void Main(String[] args)
         {
             Personne personne = new Personne();
-            personne.Age = 15;
-            Console.WriteLine(personne.Age);
+            personne.Age = 105;
+            Console.WriteLine(personne.Age + "ans");
         }
     }
 }
