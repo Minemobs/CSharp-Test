@@ -1,0 +1,66 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+class OldProgram
+{
+    public enum ConnectionResult
+    {
+        ConnectionOK,
+        WrongLogin,
+        WrongPassword
+    }
+
+        static void Main(string[] args)
+    {
+        string[] langMs = new string[]{"c++","c#","c"};
+        List<string> matiere = new List<string>();
+        matiere.Add("Anglais");
+        matiere.Add("Français");
+        matiere.Add("Espagnole");
+        matiere.Add("Maths");
+        for(int i = 0; i<4; i++){
+            //Console.WriteLine(langMs[i]);
+            Console.WriteLine(matiere[i]);
+            Console.WriteLine(matiere.IndexOf("Maths"));
+        }
+        try{
+            Console.WriteLine("Entrez un nombre");
+            int number = int.Parse(Console.ReadLine());
+            Console.WriteLine("100 / {0} = {1}", number, 100 / number);
+        }catch (DivideByZeroException)
+        {
+            Console.WriteLine("Division par zéro impossible");
+        }catch (FormatException)
+        {
+            Console.WriteLine("Division d'un string impossible");
+        }catch (OverflowException)
+        {
+            Console.WriteLine("Division d'un chiffre supérieur / inférieur à Int32 impossible");
+        }finally{
+            Console.WriteLine("Terminé");
+        }
+
+        ConnectionResult connectionResult = userCanConnect("0","pass");
+        if(connectionResult == ConnectionResult.ConnectionOK)
+        Console.WriteLine("Connection Réussie");
+        else if(connectionResult == ConnectionResult.WrongLogin)
+        Console.WriteLine("Connection Refusée : Login inconnu");
+        else if(connectionResult == ConnectionResult.WrongPassword)
+        Console.WriteLine("Connection Refusée : Mdp inconnu");
+    }
+    
+
+    private static ConnectionResult userCanConnect(string login, string password){
+        if(login != "0")
+        {
+            if(login == "login" && password == "pass")
+            return ConnectionResult.ConnectionOK;
+            else
+            return ConnectionResult.WrongPassword;
+        }
+        return ConnectionResult.WrongLogin;
+    }
+}
