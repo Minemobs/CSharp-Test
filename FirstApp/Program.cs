@@ -1,13 +1,9 @@
-using System;
-namespace FirstApp
-{
-    class Program
+class Program
     {
-        static void Main(String[] args)
+        static void Main(string[] args){
         {
-            Personne personne = new Personne();
-            personne.Age = 105;
-            Console.WriteLine(personne.Age + "ans");
+            Personne personne1 = new Personne("mine","mobs");
+            Personne personne2 = new Personne("mine","mobs");
+            Console.WriteLine(personne1.Equals(personne2));
         }
-    }
 }

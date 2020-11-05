@@ -1,34 +1,25 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 namespace FirstApp
 {
-    class Personne
+    class Personne : IEquatable<Personne>
     {
-        private int _age;
 
-        public int Age
+        public string Nom {get; set;}
+        public string Prenom {get; set;}
+
+        public Personne(string nom, string prenom)
         {
-            get
-            {
-                if(_age == 0)
-                {
-                    return 100;
-                }
-                else
-                {
-                    return _age;
-                }
-            }
-            set
-            {
-                if(value > 0 && value < 100)
-                {
-                    _age = value;
-                }
-                else
-                {
-                    Console.WriteLine("L'age doit être compris entre 0 et 100.");
-                }
-            }
+            this.Nom = nom;
+            this.Prenom = prenom;
+        }
+
+        public bool Equals(Personne personne)
+        {
+            return this.Nom == personne.Nom && this.Prenom == personne.Prenom;
         }
     }
 }
